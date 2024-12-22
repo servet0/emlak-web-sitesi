@@ -74,20 +74,28 @@
 
   <!--/ Property Single Star /-->
   <?php
+// baglan.php dosyasını dahil ediyoruz
 include 'baglan.php';
 
-// Gelen ID'yi alıyoruz
+// Gelen ID'yi alıyoruz ve geçerli olup olmadığını kontrol ediyoruz
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+if ($id === 0) {
+    die("Geçersiz ilan ID.");
+}
 
 // Veritabanından ilgili ilanı çekiyoruz
-$query = $db->prepare("SELECT * FROM kiralik_daireler WHERE id = ?");
-$query->execute([$id]);
-$ilan = $query->fetch(PDO::FETCH_ASSOC);
+$query = "SELECT * FROM kiralik_daireler WHERE id = ?";
+$stmt = mysqli_prepare($conn, $query);
+mysqli_stmt_bind_param($stmt, "i", $id); // Parametreyi bağla
+mysqli_stmt_execute($stmt); // Sorguyu çalıştır
+$result = mysqli_stmt_get_result($stmt); // Sonuçları al
 
-// İlan bulunamadığında hata mesajı veriyoruz
-if (!$ilan) {
-    echo "İlan bulunamadı.";
-    exit;
+// Sonuçları kontrol ediyoruz
+$row = mysqli_fetch_assoc($result);
+
+// Eğer ilan bulunamazsa hata veriyoruz
+if (!$row) {
+    die("İlan bulunamadı.");
 }
 ?>
 
@@ -98,7 +106,7 @@ if (!$ilan) {
             <div class="col-sm-12">
                 <div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property">
                     <div class="carousel-item-b">
-                        <img src="uploads/<?php echo htmlspecialchars($ilan['resim']); ?>" alt="<?php echo htmlspecialchars($ilan['baslik']); ?>">
+                        <img src="<?php echo $row['resim']; ?>" alt="<?php echo htmlspecialchars($row['baslik']); ?>">
                     </div>
                 </div>
                 <div class="row justify-content-between">
@@ -109,7 +117,7 @@ if (!$ilan) {
                                     <span class="ion-money">$</span>
                                 </div>
                                 <div class="card-title-c align-self-center">
-                                    <h5 class="title-c"><?php echo htmlspecialchars($ilan['fiyat']); ?></h5>
+                                    <h5 class="title-c"><?php echo htmlspecialchars($row['fiyat']); ?></h5>
                                 </div>
                             </div>
                         </div>
@@ -125,27 +133,27 @@ if (!$ilan) {
                                 <ul class="list">
                                     <li class="d-flex justify-content-between">
                                         <strong>Property ID:</strong>
-                                        <span><?php echo htmlspecialchars($ilan['id']); ?></span>
+                                        <span><?php echo htmlspecialchars($row['id']); ?></span>
                                     </li>
                                     <li class="d-flex justify-content-between">
                                         <strong>Location:</strong>
-                                        <span><?php echo htmlspecialchars($ilan['konum']); ?></span>
+                                        <span><?php echo htmlspecialchars($row['konum']); ?></span>
                                     </li>
                                     <li class="d-flex justify-content-between">
                                         <strong>Area:</strong>
-                                        <span><?php echo htmlspecialchars($ilan['alan']); ?>m<sup>2</sup></span>
+                                        <span><?php echo htmlspecialchars($row['alan']); ?>m<sup>2</sup></span>
                                     </li>
                                     <li class="d-flex justify-content-between">
                                         <strong>Beds:</strong>
-                                        <span><?php echo htmlspecialchars($ilan['oda_sayisi']); ?></span>
+                                        <span><?php echo htmlspecialchars($row['oda_sayisi']); ?></span>
                                     </li>
                                     <li class="d-flex justify-content-between">
                                         <strong>Baths:</strong>
-                                        <span><?php echo htmlspecialchars($ilan['banyo_sayisi']); ?></span>
+                                        <span><?php echo htmlspecialchars($row['banyo_sayisi']); ?></span>
                                     </li>
                                     <li class="d-flex justify-content-between">
                                         <strong>Garage:</strong>
-                                        <span><?php echo htmlspecialchars($ilan['garaj']); ?></span>
+                                        <span><?php echo htmlspecialchars($row['garaj']); ?></span>
                                     </li>
                                 </ul>
                             </div>
@@ -161,7 +169,7 @@ if (!$ilan) {
                         </div>
                         <div class="property-description">
                             <p class="description color-text-a">
-                                <?php echo nl2br(htmlspecialchars($ilan['aciklama'])); ?>
+                                <?php echo nl2br(htmlspecialchars($row['aciklama'])); ?>
                             </p>
                         </div>
                     </div>
@@ -171,6 +179,9 @@ if (!$ilan) {
     </div>
 </section>
 <!-- Property Single End -->
+
+<!-- Property Single End -->
+
 
   <!--/ Property Single End /-->
 

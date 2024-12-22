@@ -73,20 +73,18 @@ include 'baglan.php';
 
 // Sayfalama için gerekli değişkenler
 $limit = 12;  // Her sayfada gösterilecek veri sayısı
-$page = isset($_GET['page']) ? $_GET['page'] : 1;  // Geçerli sayfa numarası
+$page = isset($_GET['page']) ? intval($_GET['page']) : 1;  // Geçerli sayfa numarası
 $offset = ($page - 1) * $limit;  // Sayfa başına verileri almak için offset
 
 // Veritabanından verileri çek
 $sql = "SELECT * FROM kiralik_daireler LIMIT $limit OFFSET $offset";
 $result = $conn->query($sql);
 
-
 // Sayfa sayısını hesaplamak için toplam veri sayısını al
 $total_sql = "SELECT COUNT(*) AS total FROM kiralik_daireler";
 $total_result = $conn->query($total_sql);
 $total_row = $total_result->fetch_assoc();
 $total_pages = ceil($total_row['total'] / $limit);  // Toplam sayfa sayısı
-
 ?>
 
 <section class="property-grid grid">
@@ -122,9 +120,8 @@ $total_pages = ceil($total_row['total'] / $limit);  // Toplam sayfa sayısı
                   <div class="price-box d-flex">
                     <span class="price-a">rent | $ <?php echo number_format($row['fiyat']); ?></span>
                   </div>
-                  <a href="kiralik-single.php?id=<?php echo $ilan['id']; ?>" class="link-a">Click here to view
-                    <span class="ion-ios-arrow-forward"></span>
-                  </a>
+                  <a href="kiralik-single.php?id=<?php echo $row['id']; ?>" class="link-a">Detayları Gör</a>
+
                 </div>
                 <div class="card-footer-a">
                   <ul class="card-info d-flex justify-content-around">
