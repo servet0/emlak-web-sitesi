@@ -46,18 +46,18 @@
       <div class="row">
         <div class="col-md-12 col-lg-8">
           <div class="title-single-box">
-            <h1 class="title-single">Our Amazing Properties</h1>
-            <span class="color-text-a">Grid Properties</span>
+            <h1 class="title-single">Kiralık Daireler</h1>
+            <span class="color-text-a">Es Emlak</span>
           </div>
         </div>
         <div class="col-md-12 col-lg-4">
           <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <a href="#">Home</a>
+                <a href="anasayfa.php">Anasayfa</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
-                Properties Grid
+                Kiralık
               </li>
             </ol>
           </nav>
@@ -79,6 +79,7 @@ $offset = ($page - 1) * $limit;  // Sayfa başına verileri almak için offset
 // Veritabanından verileri çek
 $sql = "SELECT * FROM kiralik_daireler LIMIT $limit OFFSET $offset";
 $result = $conn->query($sql);
+
 
 // Sayfa sayısını hesaplamak için toplam veri sayısını al
 $total_sql = "SELECT COUNT(*) AS total FROM kiralik_daireler";
@@ -121,7 +122,7 @@ $total_pages = ceil($total_row['total'] / $limit);  // Toplam sayfa sayısı
                   <div class="price-box d-flex">
                     <span class="price-a">rent | $ <?php echo number_format($row['fiyat']); ?></span>
                   </div>
-                  <a href="property-single.html" class="link-a">Click here to view
+                  <a href="kiralik-single.php?id=<?php echo $ilan['id']; ?>" class="link-a">Click here to view
                     <span class="ion-ios-arrow-forward"></span>
                   </a>
                 </div>
