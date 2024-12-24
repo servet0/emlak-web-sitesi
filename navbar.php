@@ -26,6 +26,9 @@
           <li class="nav-item">
             <a class="nav-link" href="contact.php">İletişim</a>
           </li>
+          <!--<li class="nav-item">
+            <a class="nav-link" href="contactform.php">İletişim Formu</a>
+          </li>-->
         </ul>
       </div>
     </div>

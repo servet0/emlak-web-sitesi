@@ -19,7 +19,7 @@ if (!$result) {
                         <h2 class="title-a">Kiralık Daireler</h2>
                     </div>
                     <div class="title-link">
-                        <a href="property-grid.html">Tüm Daireler
+                        <a href="kiraliklar.php">Tüm Daireler
                             <span class="ion-ios-arrow-forward"></span>
                         </a>
                     </div>

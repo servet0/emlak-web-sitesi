@@ -9,61 +9,56 @@
             </div>
             <div class="w-body-a">
               <p class="w-text-a color-text-a">
-                Enim minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip exea commodo consequat duis
-                sed aute irure.
+              Es Emlak ile Hayalinizdeki Evi Keşfedin!
               </p>
             </div>
             <div class="w-footer-a">
               <ul class="list-unstyled">
                 <li class="color-a">
-                  <span class="color-text-a">Phone .</span> contact@example.com</li>
+                  <span class="color-text-a">Phone </span> 0(324) 545 88 99</li>
                 <li class="color-a">
-                  <span class="color-text-a">Email .</span> +54 356 945234</li>
+                  <span class="color-text-a">Email </span> esemlak@gmail.com</li>
               </ul>
             </div>
           </div>
             <ul class="list-inline">
               <li class="list-inline-item">
-                <a href="#">Anasayfa</a>
+                <a href="anasayfa.php">Anasayfa</a>
               </li>
               <li class="list-inline-item">
-                <a href="#">Hakkında</a>
+                <a href="about.php">Hakkında</a>
               </li>
               <li class="list-inline-item">
-                <a href="#">Kiralık</a>
+                <a href="kiraliklar.php">Kiralık</a>
               </li>
               <li class="list-inline-item">
-                <a href="#">İletişim</a>
+                <a href="contact.php">İletişim</a>
               </li>
             </ul>
           </nav>
           <div class="socials-a">
             <ul class="list-inline">
               <li class="list-inline-item">
-                <a href="#">
+                <a href="https://facebook.com" target="_blank">
                   <i class="fa fa-facebook" aria-hidden="true"></i>
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="#">
+                <a href="https://x.com" target="_blank">
                   <i class="fa fa-twitter" aria-hidden="true"></i>
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="#">
+                <a href="https://instagram.com" target="_blank">
                   <i class="fa fa-instagram" aria-hidden="true"></i>
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="#">
+                <a href="https://pinterest.com" target="_blank">
                   <i class="fa fa-pinterest-p" aria-hidden="true"></i>
                 </a>
               </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-dribbble" aria-hidden="true"></i>
-                </a>
-              </li>
+              
             </ul>
           </div>
           <div class="copyright-footer">

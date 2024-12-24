@@ -5,7 +5,7 @@
         <div class="col-md-12">
           <div class="title-wrap d-flex justify-content-between">
             <div class="title-box">
-              <h2 class="title-a">Our Services</h2>
+              <h2 class="title-a">Sunduklarımız</h2>
             </div>
           </div>
         </div>
@@ -18,20 +18,16 @@
                 <span class="fa fa-gamepad"></span>
               </div>
               <div class="card-title-c align-self-center">
-                <h2 class="title-c">Lifestyle</h2>
+                <h2 class="title-c">Yaşam Stili</h2>
               </div>
             </div>
             <div class="card-body-c">
               <p class="content-c">
-                Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Praesent sapien massa,
-                convallis a pellentesque
-                nec, egestas non nisi.
+              Eskişehir'de yaşam stiliyle uyumlu, konforlu ve modern kiralık evler sunuyoruz. Şehirdeki en iyi lokasyonlarda, her ihtimale yönelik tasarlanmış dairelerimizle hayatınızı kolaylaştırmayı hedefliyoruz. Sizin için ideal yaşam alanını bulmak, bizim için en büyük öncelik!
               </p>
             </div>
             <div class="card-footer-c">
-              <a href="#" class="link-c link-icon">Read more
-                <span class="ion-ios-arrow-forward"></span>
-              </a>
+              
             </div>
           </div>
         </div>
@@ -42,20 +38,16 @@
                 <span class="fa fa-usd"></span>
               </div>
               <div class="card-title-c align-self-center">
-                <h2 class="title-c">Loans</h2>
+                <h2 class="title-c">Fiyat</h2>
               </div>
             </div>
             <div class="card-body-c">
               <p class="content-c">
-                Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit. Mauris blandit
-                aliquet elit, eget tincidunt
-                nibh pulvinar a.
+              Uygun fiyatlı ve konforlu kiralık evlerimiz ile Eskişehir'de rahat bir yaşam sürmeniz mümkün. Bütçenize uygun geniş ve modern daire seçeneklerimizle, her türlü ihtiyacınızı karşılayacak yaşam alanları sunuyoruz.
               </p>
             </div>
             <div class="card-footer-c">
-              <a href="#" class="link-c link-icon">Read more
-                <span class="ion-ios-arrow-forward"></span>
-              </a>
+              
             </div>
           </div>
         </div>
@@ -66,20 +58,16 @@
                 <span class="fa fa-home"></span>
               </div>
               <div class="card-title-c align-self-center">
-                <h2 class="title-c">Sell</h2>
+                <h2 class="title-c">Kiralık Evler</h2>
               </div>
             </div>
             <div class="card-body-c">
               <p class="content-c">
-                Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Praesent sapien massa,
-                convallis a pellentesque
-                nec, egestas non nisi.
+              Eskişehir’de kiralık ev arayışınızı en iyi şekilde karşılıyoruz. Farklı ihtiyaçlara ve bütçelere hitap eden şık ve konforlu kiralık dairelerimizle, rahat bir yaşam alanı sunuyoruz. İster tek başınıza ister ailenizle, Eskişehir'de yaşamınıza uygun kiralık evleri keşfedin!
               </p>
             </div>
             <div class="card-footer-c">
-              <a href="#" class="link-c link-icon">Read more
-                <span class="ion-ios-arrow-forward"></span>
-              </a>
+              
             </div>
           </div>
         </div>

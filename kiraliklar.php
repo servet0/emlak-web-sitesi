@@ -92,14 +92,12 @@ $total_pages = ceil($total_row['total'] / $limit);  // Toplam sayfa sayısı
     <div class="row">
       <div class="col-sm-12">
         <div class="grid-option">
-          <form>
-            <select class="custom-select">
-              <option selected>All</option>
-              <option value="1">New to Old</option>
-              <option value="2">For Rent</option>
-              <option value="3">For Sale</option>
-            </select>
-          </form>
+          
+            <a href="kiraliklar.php?page=1"><option value="1">Tümü</option></a>
+            <a href="kiraliklar.php?page=2"><option value="2">Yeni</option></a>
+            <a href="kiraliklar.php?page=3"><option value="3">Eski</option></a>            
+            
+          
         </div>
       </div>
 
