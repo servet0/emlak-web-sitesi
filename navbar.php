@@ -17,16 +17,16 @@
             <a class="nav-link active" href="anasayfa.php">Anasayfa</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">Hakkında</a>
+            <a class="nav-link" href="about.php">Hakkında</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="kiraliklar.php">Kiralık</a>
           </li>
          
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">İletişim</a>
+            <a class="nav-link" href="contact.php">İletişim</a>
           </li>
         </ul>
       </div>
     </div>
-  </nav>
+</nav>
