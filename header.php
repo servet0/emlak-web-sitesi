@@ -26,10 +26,10 @@ if (!$result) {
                                             <br> Genişlik: <?php echo $row['alan']; ?> m²
                                         </p>
                                         <h1 class="intro-title mb-4">
-                                            <span class="color-b"> <?php echo $row['baslik']; ?></span>
+                                            <a href="kiralik-single.php?id=<?php echo $row['id']; ?>"><span class="color-b"> <?php echo $row['baslik']; ?></span></a>
                                         </h1>
                                         <p class="intro-subtitle intro-price">
-                                            <a href="#"><span class="price-a">Kira Fiyatı | <?php echo $row['fiyat']; ?> TL</span></a>
+                                            <span class="price-a">Kira Fiyatı | <?php echo $row['fiyat']; ?> TL</span>
                                         </p>
                                         
                                     </div>

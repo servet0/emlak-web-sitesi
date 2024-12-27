@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>EstateAgency Bootstrap Template</title>
+  <title>Es Emlak</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -52,7 +52,7 @@
           <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <a href="anasayfa.php">Anasayfa</a>
+                <a href="index.php">Anasayfa</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
                 Hakkında
@@ -71,7 +71,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="about-img-box">
-            <img src="img/slide-about-1.jpg" alt="" class="img-fluid">
+            <img src="img/OBTQ.jpg" alt="" class="img-fluid">
           </div>
           <div class="sinse-box">
             <h3 class="sinse-title">Es Emlak
@@ -83,7 +83,7 @@
         <div class="col-md-12 section-t8">
           <div class="row">
             <div class="col-md-6 col-lg-5">
-              <img src="img/about-2.jpg" alt="" class="img-fluid">
+              <img src="img/about-1.jpg" alt="" class="img-fluid">
             </div>
             <div class="col-lg-2  d-none d-lg-block">
               <div class="title-vertical d-flex justify-content-start">

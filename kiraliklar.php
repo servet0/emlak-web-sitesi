@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>EstateAgency Bootstrap Template</title>
+  <title>Es Emlak</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -54,7 +54,7 @@
           <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <a href="anasayfa.php">Anasayfa</a>
+                <a href="index.php">Anasayfa</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
                 Kiralık
@@ -93,9 +93,9 @@ $total_pages = ceil($total_row['total'] / $limit);  // Toplam sayfa sayısı
       <div class="col-sm-12">
         <div class="grid-option">
           
-            <a href="kiraliklar.php?page=1"><option value="1">Tümü</option></a>
+            <a href="kiraliklar.php"><option value="1">Tümü</option></a>
             <a href="kiraliklar.php?page=2"><option value="2">Yeni</option></a>
-            <a href="kiraliklar.php?page=3"><option value="3">Eski</option></a>            
+            <a href="kiraliklar.php?page=1"><option value="3">Eski</option></a>            
             
           
         </div>
@@ -111,12 +111,12 @@ $total_pages = ceil($total_row['total'] / $limit);  // Toplam sayfa sayısı
               <div class="card-overlay-a-content">
                 <div class="card-header-a">
                   <h2 class="card-title-a">
-                    <a href="#"><?php echo $row['baslik']; ?></a>
+                    <a href="kiralik-single.php?id=<?php echo $row['id']; ?>"><?php echo $row['baslik']; ?></a>
                   </h2>
                 </div>
                 <div class="card-body-a">
                   <div class="price-box d-flex">
-                    <span class="price-a">rent | $ <?php echo number_format($row['fiyat']); ?></span>
+                    <span class="price-a">Fiyat |  <?php echo number_format($row['fiyat']); ?> TL</span>
                   </div>
                   <a href="kiralik-single.php?id=<?php echo $row['id']; ?>" class="link-a">Detayları Gör</a>
 
@@ -124,19 +124,19 @@ $total_pages = ceil($total_row['total'] / $limit);  // Toplam sayfa sayısı
                 <div class="card-footer-a">
                   <ul class="card-info d-flex justify-content-around">
                     <li>
-                      <h4 class="card-info-title">Area</h4>
+                      <h4 class="card-info-title">Alan</h4>
                       <span><?php echo $row['alan']; ?>m<sup>2</sup></span>
                     </li>
                     <li>
-                      <h4 class="card-info-title">Beds</h4>
+                      <h4 class="card-info-title">Oda</h4>
                       <span><?php echo $row['oda_sayisi']; ?></span>
                     </li>
                     <li>
-                      <h4 class="card-info-title">Baths</h4>
+                      <h4 class="card-info-title">Banyo</h4>
                       <span><?php echo $row['banyo_sayisi']; ?></span>
                     </li>
                     <li>
-                      <h4 class="card-info-title">Garages</h4>
+                      <h4 class="card-info-title">Garaj</h4>
                       <span><?php echo $row['garaj']; ?></span>
                     </li>
                   </ul>

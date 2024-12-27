@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>EstateAgency Bootstrap Template</title>
+  <title>Es Emlak</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -48,22 +48,19 @@
       <div class="row">
         <div class="col-md-12 col-lg-8">
           <div class="title-single-box">
-            <h1 class="title-single">304 Blaster Up</h1>
-            <span class="color-text-a">Chicago, IL 606543</span>
+            <h1 class="title-single">Es Emlak'tan Kiralık Evler</h1>
           </div>
         </div>
         <div class="col-md-12 col-lg-4">
           <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <a href="index.html">Home</a>
+                <a href="index.php">Anasayfa</a>
               </li>
               <li class="breadcrumb-item">
-                <a href="property-grid.html">Properties</a>
+               Daire
               </li>
-              <li class="breadcrumb-item active" aria-current="page">
-                304 Blaster Up
-              </li>
+             
             </ol>
           </nav>
         </div>
@@ -113,11 +110,12 @@ if (!$row) {
                     <div class="col-md-5 col-lg-4">
                         <div class="property-price d-flex justify-content-center foo">
                             <div class="card-header-c d-flex">
+                                
+                                
                                 <div class="card-box-ico">
-                                    <span class="ion-money">$</span>
-                                </div>
                                 <div class="card-title-c align-self-center">
-                                    <h5 class="title-c"><?php echo htmlspecialchars($row['fiyat']); ?></h5>
+                                    <h5 class="title-c"><?php echo htmlspecialchars($row['fiyat']); ?> TL</h5>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -125,34 +123,34 @@ if (!$row) {
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="title-box-d section-t4">
-                                        <h3 class="title-d">Quick Summary</h3>
+                                        <h3 class="title-d">Özellikler</h3>
                                     </div>
                                 </div>
                             </div>
                             <div class="summary-list">
                                 <ul class="list">
                                     <li class="d-flex justify-content-between">
-                                        <strong>Property ID:</strong>
+                                        <strong>ID:</strong>
                                         <span><?php echo htmlspecialchars($row['id']); ?></span>
                                     </li>
                                     <li class="d-flex justify-content-between">
-                                        <strong>Location:</strong>
+                                        <strong>Konum:</strong>
                                         <span><?php echo htmlspecialchars($row['konum']); ?></span>
                                     </li>
                                     <li class="d-flex justify-content-between">
-                                        <strong>Area:</strong>
+                                        <strong>Genişlik:</strong>
                                         <span><?php echo htmlspecialchars($row['alan']); ?>m<sup>2</sup></span>
                                     </li>
                                     <li class="d-flex justify-content-between">
-                                        <strong>Beds:</strong>
+                                        <strong>Yatak odası sayısı:</strong>
                                         <span><?php echo htmlspecialchars($row['oda_sayisi']); ?></span>
                                     </li>
                                     <li class="d-flex justify-content-between">
-                                        <strong>Baths:</strong>
+                                        <strong>Banyo sayısı:</strong>
                                         <span><?php echo htmlspecialchars($row['banyo_sayisi']); ?></span>
                                     </li>
                                     <li class="d-flex justify-content-between">
-                                        <strong>Garage:</strong>
+                                        <strong>Garaj:</strong>
                                         <span><?php echo htmlspecialchars($row['garaj']); ?></span>
                                     </li>
                                 </ul>
@@ -163,7 +161,7 @@ if (!$row) {
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="title-box-d">
-                                    <h3 class="title-d">Property Description</h3>
+                                    <h3 class="title-d">Açıklama</h3>
                                 </div>
                             </div>
                         </div>

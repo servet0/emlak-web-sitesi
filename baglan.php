@@ -1,9 +1,17 @@
 <?php
 // Veritabanı bağlantısı için gerekli bilgiler
 $host = "127.0.0.1"; // XAMPP için genelde localhost veya 127.0.0.1 kullanılır
-$username = "root"; // XAMPP varsayılan kullanıcı adı
-$password = ""; // XAMPP varsayılan şifresi boş bırakılır
-$database = "emlak"; // Emlak projeniz için oluşturduğunuz veritabanı adı
+$username = "821620221046"; // XAMPP varsayılan kullanıcı adı
+$password = "bvoWwF5clC3"; // XAMPP varsayılan şifresi boş bırakılır
+$database = "db_821620221046"; // Emlak projeniz için oluşturduğunuz veritabanı adı
+
+// ESKİ
+
+// Veritabanı bağlantısı için gerekli bilgiler
+// $host = "127.0.0.1"; // XAMPP için genelde localhost veya 127.0.0.1 kullanılır
+// $username = "root"; // XAMPP varsayılan kullanıcı adı
+// $password = ""; // XAMPP varsayılan şifresi boş bırakılır
+// $database = "emlak"; // Emlak projeniz için oluşturduğunuz veritabanı adı
 
 // Veritabanına bağlan
 $conn = mysqli_connect($host, $username, $password, $database);
@@ -26,3 +34,5 @@ mysqli_query($conn, "SET NAMES 'utf8'");
 // mysqli_close($conn);
 
 ?>
+
+

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>EstateAgency Bootstrap Template</title>
+  <title>Es Emlak</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -54,10 +54,10 @@
           <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <a href="anasayfa.php">Anasayfa</a>
+                <a href="index.php">Anasayfa</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
-                Contact
+                Hakkında
               </li>
             </ol>
           </nav>

@@ -41,14 +41,14 @@ if (!$result) {
                                 <div class="card-overlay-a-content">
                                     <div class="card-header-a">
                                         <h2 class="card-title-a">
-                                            <a href="property-single.html"><?php echo $row['baslik']; ?></a>
+                                            <a href="kiralik-single.php?id=<?php echo $row['id']; ?>"><?php echo $row['baslik']; ?></a>
                                         </h2>
                                     </div>
                                     <div class="card-body-a">
                                         <div class="price-box d-flex">
-                                            <span class="price-a">Fiyat | $<?php echo $row['fiyat']; ?></span>
+                                            <span class="price-a">Fiyat | <?php echo $row['fiyat']; ?> TL</span>
                                         </div>
-                                        <a href="property-single.html" class="link-a">Click here to view
+                                        <a href="kiralik-single.php?id=<?php echo $row['id']; ?>" class="link-a">Detaylari gör
                                             <span class="ion-ios-arrow-forward"></span>
                                         </a>
                                     </div>

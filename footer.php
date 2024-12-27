@@ -23,7 +23,7 @@
           </div>
             <ul class="list-inline">
               <li class="list-inline-item">
-                <a href="anasayfa.php">Anasayfa</a>
+                <a href="index.php">Anasayfa</a>
               </li>
               <li class="list-inline-item">
                 <a href="about.php">Hakkında</a>
