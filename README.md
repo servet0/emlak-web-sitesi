@@ -9,10 +9,10 @@ Kullanıcı Dostu Arayüz: Modern ve responsive tasarım, tüm cihazlarda soruns
 Performans Optimizasyonu: Hızlı yükleme süreleri ve yüksek performans için optimize edilmiştir.
 
 ## Teknolojiler
-PHP: Sunucu tarafında dinamik işlemler.
-MySQL: Veritabanı yönetimi ve veri depolama.
-AJAX: Dinamik ve etkileşimli kullanıcı deneyimi.
-HTML/CSS: Şık ve kullanıcı dostu bir arayüz tasarımı.
+- PHP: Sunucu tarafında dinamik işlemler.
+- MySQL: Veritabanı yönetimi ve veri depolama.
+- AJAX: Dinamik ve etkileşimli kullanıcı deneyimi.
+- HTML/CSS: Şık ve kullanıcı dostu bir arayüz tasarımı.
 
 ## Veritabanı Yapısı
 Projede kullanılan veritabanı, veri normalizasyonu prensiplerine uygun olarak tasarlanmıştır. Kritik sorgular için indeksleme yapılmış ve veri güvenliği ön planda tutulmuştur.
@@ -22,7 +22,7 @@ Kiralık Daireler Tablosu: Emlak bilgilerini içerir.
 
 ## Kurulum
 Proje dosyalarını klonlayın:
-git clone https://github.com/servet0/emlak-web-sitesi.git
+git clone https://github.com/servet0/emlak-web-sitesi
 
 Veritabanını yapılandırın:
 
