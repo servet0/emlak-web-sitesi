@@ -1,4 +1,7 @@
 # Emlak Web Sitesi
+
+https://fef.ogu.edu.tr/webler/821620221046/
+
 Bu proje, PHP, MySQL ve AJAX kullanarak dinamik, kullanıcı dostu ve modern bir emlak listeleme platformu oluşturmak için geliştirilmiştir. Kullanıcılar, bu platform üzerinden kiralık evleri kolayca inceleyebilir, tercihlerine göre filtreleme yapabilir ve detaylı bilgi alabilirler.
 
 ## Özellikler
