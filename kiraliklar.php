@@ -1,3 +1,32 @@
+<?php
+include 'baglan.php';
+
+// Sayfalama için gerekli değişkenler
+$limit = 12;  // Her sayfada gösterilecek veri sayısı
+$page = isset($_GET['page']) ? intval($_GET['page']) : 1;  // Geçerli sayfa numarası
+$offset = ($page - 1) * $limit;  // Sayfa başına verileri almak için offset
+
+// Filtreleme için type parametresi
+$type = isset($_GET['type']) ? $_GET['type'] : '';
+
+// Veritabanından verileri çek
+$sql = "SELECT * FROM properties WHERE status = 1";
+if ($type) {
+    $sql .= " AND type = '$type'";
+}
+$sql .= " ORDER BY created_at DESC LIMIT $limit OFFSET $offset";
+$result = $conn->query($sql);
+
+// Sayfa sayısını hesaplamak için toplam veri sayısını al
+$total_sql = "SELECT COUNT(*) AS total FROM properties WHERE status = 1";
+if ($type) {
+    $total_sql .= " AND type = '$type'";
+}
+$total_result = $conn->query($total_sql);
+$total_row = $total_result->fetch_assoc();
+$total_pages = ceil($total_row['total'] / $limit);  // Toplam sayfa sayısı
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +75,7 @@
       <div class="row">
         <div class="col-md-12 col-lg-8">
           <div class="title-single-box">
-            <h1 class="title-single">Kiralık Daireler</h1>
+            <h1 class="title-single">Emlak İlanları</h1>
             <span class="color-text-a">Es Emlak</span>
           </div>
         </div>
@@ -57,7 +86,7 @@
                 <a href="index.php">Anasayfa</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
-                Kiralık
+                İlanlar
               </li>
             </ol>
           </nav>
@@ -68,127 +97,107 @@
   <!--/ Intro Single End /-->
 
   <!--/ Property Grid Star /-->
-  <?php
-include 'baglan.php';
-
-// Sayfalama için gerekli değişkenler
-$limit = 12;  // Her sayfada gösterilecek veri sayısı
-$page = isset($_GET['page']) ? intval($_GET['page']) : 1;  // Geçerli sayfa numarası
-$offset = ($page - 1) * $limit;  // Sayfa başına verileri almak için offset
-
-// Veritabanından verileri çek
-$sql = "SELECT * FROM kiralik_daireler LIMIT $limit OFFSET $offset";
-$result = $conn->query($sql);
-
-// Sayfa sayısını hesaplamak için toplam veri sayısını al
-$total_sql = "SELECT COUNT(*) AS total FROM kiralik_daireler";
-$total_result = $conn->query($total_sql);
-$total_row = $total_result->fetch_assoc();
-$total_pages = ceil($total_row['total'] / $limit);  // Toplam sayfa sayısı
-?>
-
-<section class="property-grid grid">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="grid-option">
-          
-            <a href="kiraliklar.php"><option value="1">Tümü</option></a>
-            <a href="kiraliklar.php?page=2"><option value="2">Yeni</option></a>
-            <a href="kiraliklar.php?page=1"><option value="3">Eski</option></a>            
-            
-          
+  <section class="property-grid grid">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="grid-option">
+            <form id="filterForm" class="d-flex">
+              <select name="type" id="typeFilter" class="form-control">
+                <option value="">Tümü</option>
+                <option value="kiralik" <?php echo ($type == 'kiralik') ? 'selected' : ''; ?>>Kiralık</option>
+                <option value="satilik" <?php echo ($type == 'satilik') ? 'selected' : ''; ?>>Satılık</option>
+              </select>
+            </form>
+          </div>
         </div>
       </div>
 
-      <?php while($row = $result->fetch_assoc()) { ?>
-        <div class="col-md-4">
-          <div class="card-box-a card-shadow">
-            <div class="img-box-a">
-              <img src="<?php echo $row['resim']; ?>" alt="" class="img-a img-fluid">
-            </div>
-            <div class="card-overlay">
-              <div class="card-overlay-a-content">
-                <div class="card-header-a">
-                  <h2 class="card-title-a">
-                    <a href="kiralik-single.php?id=<?php echo $row['id']; ?>"><?php echo $row['baslik']; ?></a>
-                  </h2>
-                </div>
-                <div class="card-body-a">
-                  <div class="price-box d-flex">
-                    <span class="price-a">Fiyat |  <?php echo number_format($row['fiyat']); ?> TL</span>
+      <div class="row" id="propertyList">
+        <?php while($row = $result->fetch_assoc()) { ?>
+          <div class="col-md-4">
+            <div class="card-box-a card-shadow">
+              <div class="img-box-a">
+                <img src="img/properties/<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['title']); ?>" class="img-a img-fluid">
+              </div>
+              <div class="card-overlay">
+                <div class="card-overlay-a-content">
+                  <div class="card-header-a">
+                    <h2 class="card-title-a">
+                      <a href="kiralik-single.php?id=<?php echo $row['id']; ?>"><?php echo htmlspecialchars($row['title']); ?></a>
+                    </h2>
                   </div>
-                  <a href="kiralik-single.php?id=<?php echo $row['id']; ?>" class="link-a">Detayları Gör</a>
-
-                </div>
-                <div class="card-footer-a">
-                  <ul class="card-info d-flex justify-content-around">
-                    <li>
-                      <h4 class="card-info-title">Alan</h4>
-                      <span><?php echo $row['alan']; ?>m<sup>2</sup></span>
-                    </li>
-                    <li>
-                      <h4 class="card-info-title">Oda</h4>
-                      <span><?php echo $row['oda_sayisi']; ?></span>
-                    </li>
-                    <li>
-                      <h4 class="card-info-title">Banyo</h4>
-                      <span><?php echo $row['banyo_sayisi']; ?></span>
-                    </li>
-                    <li>
-                      <h4 class="card-info-title">Garaj</h4>
-                      <span><?php echo $row['garaj']; ?></span>
-                    </li>
-                  </ul>
+                  <div class="card-body-a">
+                    <div class="price-box d-flex">
+                      <span class="price-a"><?php echo $row['type'] == 'kiralik' ? 'Kiralık' : 'Satılık'; ?> | <?php echo number_format($row['price']); ?> TL</span>
+                    </div>
+                    <a href="kiralik-single.php?id=<?php echo $row['id']; ?>" class="link-a">Detayları gör
+                      <span class="ion-ios-arrow-forward"></span>
+                    </a>
+                  </div>
+                  <div class="card-footer-a">
+                    <ul class="card-info d-flex justify-content-around">
+                      <li>
+                        <h4 class="card-info-title">Alan</h4>
+                        <span><?php echo htmlspecialchars($row['alan']); ?>m<sup>2</sup></span>
+                      </li>
+                      <li>
+                        <h4 class="card-info-title">Oda</h4>
+                        <span><?php echo htmlspecialchars($row['oda_sayisi']); ?></span>
+                      </li>
+                      <li>
+                        <h4 class="card-info-title">Banyo</h4>
+                        <span><?php echo htmlspecialchars($row['banyo_sayisi']); ?></span>
+                      </li>
+                      <li>
+                        <h4 class="card-info-title">Garaj</h4>
+                        <span><?php echo htmlspecialchars($row['garaj']); ?></span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        <?php } ?>
+      </div>
+
+      <!-- Sayfalama -->
+      <div class="row">
+        <div class="col-sm-12">
+          <nav class="pagination-a">
+            <ul class="pagination justify-content-end">
+              <?php if($page > 1) { ?>
+                <li class="page-item">
+                  <a class="page-link" href="?page=<?php echo $page - 1; ?><?php echo $type ? '&type='.$type : ''; ?>" tabindex="-1">
+                    <span class="ion-ios-arrow-back"></span>
+                  </a>
+                </li>
+              <?php } ?>
+
+              <?php for($i = 1; $i <= $total_pages; $i++) { ?>
+                <li class="page-item <?php echo $i == $page ? 'active' : ''; ?>">
+                  <a class="page-link" href="?page=<?php echo $i; ?><?php echo $type ? '&type='.$type : ''; ?>"><?php echo $i; ?></a>
+                </li>
+              <?php } ?>
+
+              <?php if($page < $total_pages) { ?>
+                <li class="page-item">
+                  <a class="page-link" href="?page=<?php echo $page + 1; ?><?php echo $type ? '&type='.$type : ''; ?>">
+                    <span class="ion-ios-arrow-forward"></span>
+                  </a>
+                </li>
+              <?php } ?>
+            </ul>
+          </nav>
         </div>
-      <?php } ?>
-    </div>
-
-    <!-- Sayfalama -->
-    <div class="row">
-      <div class="col-sm-12">
-        <nav class="pagination-a">
-          <ul class="pagination justify-content-end">
-            <?php if($page > 1) { ?>
-              <li class="page-item">
-                <a class="page-link" href="?page=<?php echo $page - 1; ?>" tabindex="-1">
-                  <span class="ion-ios-arrow-back"></span>
-                </a>
-              </li>
-            <?php } ?>
-
-            <?php for($i = 1; $i <= $total_pages; $i++) { ?>
-              <li class="page-item <?php echo $i == $page ? 'active' : ''; ?>">
-                <a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
-              </li>
-            <?php } ?>
-
-            <?php if($page < $total_pages) { ?>
-              <li class="page-item">
-                <a class="page-link" href="?page=<?php echo $page + 1; ?>">
-                  <span class="ion-ios-arrow-forward"></span>
-                </a>
-              </li>
-            <?php } ?>
-          </ul>
-        </nav>
       </div>
     </div>
-  </div>
-</section>
-
-<?php $conn->close(); ?>
-
-
+  </section>
   <!--/ Property Grid End /-->
 
-
-    <!--/ Footer End /-->
-    <?php include 'footer.php'; ?>
+  <!--/ Footer End /-->
+  <?php include 'footer.php'; ?>
   <!--/ Footer End /-->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
@@ -207,6 +216,32 @@ $total_pages = ceil($total_row['total'] / $limit);  // Toplam sayfa sayısı
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
+
+  <script>
+  $(document).ready(function() {
+    $('#typeFilter').change(function() {
+      var type = $(this).val();
+      var page = <?php echo $page; ?>;
+      
+      $.ajax({
+        url: 'ajax/filter_properties.php',
+        type: 'POST',
+        data: {
+          type: type,
+          page: page
+        },
+        success: function(response) {
+          $('#propertyList').html(response);
+          // Sayfa numarasını güncelle
+          history.pushState(null, '', '?page=' + page + (type ? '&type=' + type : ''));
+        },
+        error: function() {
+          alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+        }
+      });
+    });
+  });
+  </script>
 
 </body>
 </html>
